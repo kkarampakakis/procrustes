@@ -1,9 +1,8 @@
 \# Procrustes
-
+========================
 
 
 \*\*Procrustes\*\* is an LLM-assisted tool for structured PDF inquiry.
-
 
 
 It reads PDF files page by page, asks an LLM to extract requested information, and writes the results into a CSV file.
@@ -11,7 +10,7 @@ It reads PDF files page by page, asks an LLM to extract requested information, a
 
 
 \## What it does
-
+========================
 
 
 Procrustes:
@@ -35,7 +34,7 @@ Procrustes:
 
 
 \## Installation
-
+========================
 
 
 From the project folder, run:
@@ -63,7 +62,7 @@ python -m pip install .
 
 
 \## Requirements
-
+========================
 
 
 Procrustes requires Python 3.11 or newer.
@@ -91,7 +90,7 @@ These are installed automatically if `pyproject.toml` is configured correctly.
 
 
 \## Settings
-
+========================
 
 
 Procrustes uses a `settings.toml` file.
@@ -127,7 +126,7 @@ procrustes reset
 
 
 \## API keys
-
+========================
 
 
 API keys are configured in `settings.toml`.
@@ -175,7 +174,7 @@ Each key file should contain only the API key.
 
 
 \## Basic usage
-
+========================
 
 
 Put your PDF files in the folder where you want to run the inquiry.
@@ -207,7 +206,7 @@ procrustean\_output.csv
 
 
 \## Resume an interrupted inquiry
-
+========================
 
 
 If the process is interrupted, run:
@@ -235,7 +234,7 @@ procrustean\_pickle.pkl
 
 
 \## CLI commands
-
+========================
 
 
 ```bash
@@ -287,7 +286,7 @@ Reset `settings.toml` from `default\_settings.toml`.
 
 
 \## Output
-
+========================
 
 
 The main output is:
@@ -323,7 +322,7 @@ Decision,Approved,Rejected
 
 
 \## Configuration example
-
+========================
 
 
 Example `settings.toml`:
@@ -373,7 +372,7 @@ top\_p = false
 
 
 \## Notes
-
+========================
 
 
 Procrustes does not guarantee that the extracted information is correct. The output should be reviewed, especially when working with legal, bureaucratic, medical, financial, or archival documents.

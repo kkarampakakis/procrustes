@@ -30,6 +30,8 @@ class Iterator:
 
     def __init__(self, gate: PromptGateway):
         self.gate = gate
+
+        print("Building metadata list...")
         self.pages = build_metadata_list()
         self.i = 0
         self.filled_entries = {}
@@ -44,22 +46,43 @@ class Iterator:
 
 
     def resume_inquiry(self):
-        for i in range(self.i, len(self.pages)):
+        length = len(self.pages)
+
+        if length == 0:
+            print("No PDF files found.")
+            return
+
+        for i in range(self.i, length):
+            print(f"{(self.i / length) * 100:.2f}% completed")
+
             temp_entries = self.gate.inquiror.invoke(metadata_to_bytes(self.pages[i]))
-            for key in temp_entries:
+
+            for key, value in temp_entries.items():
+                if value is None:
+                    continue
+
+                value = str(value).strip()
+
+                if not value or value == "-":
+                    continue
+
                 if key in self.filled_entries:
                     exists_already = False
+
                     for x in self.filled_entries[key]:
-                        if temp_entries[key].lower() == x.lower():
+                        if value.lower() == x.lower():
                             exists_already = True
                             break
-                    if exists_already == False:
-                        self.filled_entries[key].append(temp_entries[key])
+
+                    if not exists_already:
+                        self.filled_entries[key].append(value)
+
                 else:
-                    self.filled_entries[key] = [temp_entries[key]]
+                    self.filled_entries[key] = [value]
+        
             self.i += 1
             self.save_as_pickle()
-                            
+        
 # ------------------------------------------------------------------------------------------
 
 def build_metadata_list(folder: str | Path = ".") -> List[PDFPageEntry]:

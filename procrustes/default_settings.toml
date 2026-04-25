@@ -14,12 +14,13 @@ temperature = false
 top_p = false
 
 [general]
-language = Modern Greek
+language = "Modern Greek"
+
 entries = [
-	   "Όνομα",
-	   "Επίθετο",
-	   "Διεύθυνση",
-	   ]
+"Όνομα",
+"Επίθετο",
+"Διεύθυνση",
+]
 
 # -----------------------------------------------------------------------------------------
 # GPT reasoning options: "none" | "low" | "medium" | "high"

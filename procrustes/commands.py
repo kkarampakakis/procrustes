@@ -88,7 +88,7 @@ def _load_settings(filename):
 # ------------------------------------------------------------------------------------------
 
 def _print_to_csv(data):
-    with open(f"{CSV_NAME}.csv", "w", newline="", encoding="utf-8") as f:
+    with open(f"{CSV_NAME}.csv", "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f)
 
         for key, values in data.items():

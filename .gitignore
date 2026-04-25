@@ -21,3 +21,17 @@ procrustean_output.csv
 Thumbs.db
 .vscode/
 .idea/
+
+# API keys
+openai_sk.txt
+google_sk.txt
+*_sk.txt
+*_key.txt
+
+# Runtime files
+settings.toml
+procrustean_pickle.pkl
+procrustean_output.csv
+
+# Microsoft Word temporary files
+~$*.docx

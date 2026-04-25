@@ -129,6 +129,8 @@ procrustes reset
 ========================
 
 
+Procrustes runs using LLM models from OpenAI or Google Gemini.
+You need an API key from either (or both) to run procrustes.
 API keys are configured in `settings.toml`.
 
 

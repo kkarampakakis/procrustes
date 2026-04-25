@@ -2,7 +2,7 @@
 ========================
 
 
-Procrustes is an LLM-assisted tool for structured PDF inquiry.
+An LLM-assisted tool for structured PDF inquiry.
 
 
 It reads PDF files page by page, asks an LLM to extract requested information, and writes the results into a CSV file.

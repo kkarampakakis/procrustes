@@ -39,7 +39,8 @@ class PromptGateway:
         self.inquiror = self.create_invoker(
             self.settings["inquiror"],
             self.settings["general"]["entries"],
-            instructors.instruct_inquiry(self.settings["general"]["language"]))
+            instructors.instruct_inquiry(self.settings["general"]["language"],
+                                         self.settings["general"]["context_guidelines"]))
         
     
     def create_invoker(self, x, entries, instructions):

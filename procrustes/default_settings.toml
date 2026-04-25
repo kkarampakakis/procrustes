@@ -16,6 +16,11 @@ top_p = false
 [general]
 language = "Modern Greek"
 
+context_guidelines = """
+- This paperwork is for a building permit.
+- Use uppercase only.
+""" 
+
 entries = [
 "Όνομα",
 "Επίθετο",

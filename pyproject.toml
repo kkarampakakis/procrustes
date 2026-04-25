@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "procrustes"
+version = "0.1.0b1"
+description = "An LLM-assisted tool for structured PDF inquiry."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Konstantinos Karampakakis" }
+]
+dependencies = [
+    "openai",
+    "google-genai",
+    "pypdf",
+]
+
+[project.scripts]
+procrustes = "procrustes.__main__:main"
+
+[tool.setuptools.package-data]
+procrustes = ["default_settings.toml"]

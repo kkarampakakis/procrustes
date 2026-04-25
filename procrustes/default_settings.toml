@@ -1,0 +1,29 @@
+# -----------------------------------------------------------------------------------------
+# inquiror_settings
+# -----------------------------------------------------------------------------------------
+
+[api_serial_keys] # actual serial numbers or the TXT file containing them
+openai = "openai_sk.txt"    
+google = "google_sk.txt"
+
+[inquiror]
+model = "gpt-5.2"
+reasoning = false
+verbosity = false
+temperature = false
+top_p = false
+
+[general]
+language = Modern Greek
+entries = [
+	   "Όνομα",
+	   "Επίθετο",
+	   "Διεύθυνση",
+	   ]
+
+# -----------------------------------------------------------------------------------------
+# GPT reasoning options: "none" | "low" | "medium" | "high"
+# Gemini reasoning (aka thinking) options: "minimal" | "low" | "medium" | "high"
+# GPT verbosity option: "low" | "medium" | "high"
+# temperature options: 0 to 2 (1 is the default)
+# top p options: 0 to 1

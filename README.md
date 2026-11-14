@@ -14,7 +14,6 @@ It reads PDF files page by page, asks an LLM to extract requested information, a
 This project is under development and is made publicly available for experimentation and educational purposes.
 
 Current limitations:
-
 The software has not undergone comprehensive automated testing.
 Bugs, unexpected behavior, and incomplete functionality may be present.
 Installation and execution may require additional configuration or troubleshooting.

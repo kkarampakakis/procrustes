@@ -8,6 +8,26 @@ An LLM-assisted tool for structured PDF inquiry.
 It reads PDF files page by page, asks an LLM to extract requested information, and writes the results into a CSV file.
 
 
+\## Procrustes is experimental software (Beta).
+
+This project is under development and is made publicly available for research, experimentation, and educational purposes.
+
+Current limitations:
+
+The software has not undergone comprehensive automated testing.
+
+Bugs, unexpected behavior, and incomplete functionality may be present.
+
+Installation and execution may require additional configuration or troubleshooting.
+
+PDF contents may be transmitted to third-party AI service providers (OpenAI or Google Gemini) during processing.
+
+The software uses Python pickle serialization. Users should not load pickle files from untrusted sources.
+
+Use at your own risk. Do not rely on this software for critical workflows or process sensitive or confidential documents without independently assessing its security, privacy, and reliability.
+
+Contributions, bug reports, and suggestions are welcome.
+
 
 \## What it does
 ========================

@@ -8,7 +8,8 @@ An LLM-assisted tool for structured PDF inquiry.
 It reads PDF files page by page, asks an LLM to extract requested information, and writes the results into a CSV file.
 
 
-\## Procrustes is experimental software (Beta).
+\ Procrustes is experimental software (Beta).
+========================
 
 This project is under development and is made publicly available for research, experimentation, and educational purposes.
 

@@ -1,37 +1,39 @@
-# Python
+# Python bytecode and caches
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
 .venv/
 venv/
 env/
 
-# Build files
+# Test coverage and reports
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+junit.xml
+
+# Build and packaging artifacts
 build/
 dist/
 *.egg-info/
 
-# Procrustes runtime files
+# Procrustes runtime settings, credentials, and generated files
 settings.toml
 *_key.txt
+*_sk.txt
 procrustean_pickle.pkl
 procrustean_output.csv
 
-# OS/editor junk
+# Editor and operating system files
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-
-# API keys
-openai_sk.txt
-google_sk.txt
-*_sk.txt
-*_key.txt
-
-# Runtime files
-settings.toml
-procrustean_pickle.pkl
-procrustean_output.csv
 
 # Microsoft Word temporary files
 ~$*.docx

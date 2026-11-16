@@ -406,3 +406,37 @@ The tool is designed to assist structured extraction, not replace human verifica
 
 
 
+
+
+## Build a blank entry structure
+
+The `StructureBuilder` subclass in `procrustes/structure_builder.py` traverses
+PDF files page by page, just like the normal iterator. Instead of filling in
+existing entry names, it asks the configured model to **discover field labels**
+from each PDF page. Identical labels (case-insensitive) are kept only once.
+Each discovered field is an **empty slot**: the builder never stores the PDF's
+actual names, dates, addresses, or other field values.
+
+After configuring `settings.toml`, place PDFs in your working directory and run:
+
+```bash
+procrustes build-structure
+```
+
+This creates `procrustean_structure.csv`, with one empty field per row, and
+checkpoints progress after each page in `procrustean_structure.pkl`. To resume
+an interrupted structure run:
+
+```bash
+procrustes resume-structure
+```
+
+For example, if a PDF includes the labels `Applicant Name` and `Permit Number`,
+the CSV will contain just these two rows and no extracted answers. You can
+review the proposed fields and copy them into `[general].entries` in
+`settings.toml` before running `procrustes inquire` to fill them.
+
+The original inquiry commands and checkpoint (`procrustean_pickle.pkl`) are
+unchanged. The structure run uses the existing `[inquiror]` model configuration
+and `[general]` language/context guidelines; each PDF page is sent to the
+configured API, so normal provider charges and privacy considerations apply.

@@ -8,9 +8,10 @@ from procrustes import __main__ as cli, instructors
 @pytest.mark.parametrize('command,handler', [
     ('inquire', 'inquire'), ('resume', 'resume'),
     ('reset', 'reset'), ('open-settings', 'open_settings'),
+    ('build-structure', 'build_structure'), ('resume-structure', 'resume_structure'),
 ])
 def test_cli_dispatch(monkeypatch, command, handler):
-    calls = {name: Mock() for name in ('inquire', 'resume', 'reset', 'open_settings')}
+    calls = {name: Mock() for name in ('inquire', 'resume', 'reset', 'open_settings', 'build_structure', 'resume_structure')}
     for name, mock in calls.items():
         monkeypatch.setattr(cli, name, mock)
     monkeypatch.setattr(sys, 'argv', ['procrustes', command])

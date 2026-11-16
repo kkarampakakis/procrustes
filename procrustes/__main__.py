@@ -6,6 +6,8 @@ import argparse
 
 from .commands import (
     inquire,
+    build_structure,
+    resume_structure,
     resume,
     open_settings,
     reset,
@@ -30,6 +32,16 @@ def main() -> None:
     )
 
     subparsers.add_parser(
+        "build-structure",
+        help="Discover empty entry slots from PDF pages.",
+    )
+
+    subparsers.add_parser(
+        "resume-structure",
+        help="Resume discovering entry slots from the structure checkpoint.",
+    )
+
+    subparsers.add_parser(
         "resume",
         help="Resume from the saved pickle.",
     )
@@ -48,6 +60,12 @@ def main() -> None:
 
     if args.command == "inquire":
         inquire()
+
+    elif args.command == "build-structure":
+        build_structure()
+
+    elif args.command == "resume-structure":
+        resume_structure()
 
     elif args.command == "resume":
         resume()

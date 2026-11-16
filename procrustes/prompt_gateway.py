@@ -43,6 +43,17 @@ class PromptGateway:
                                          self.settings["general"]["context_guidelines"]))
         
     
+    def create_structure_builder_invoker(self):
+        """Create a field-discovery invoker using the existing model settings."""
+        return self.create_invoker(
+            self.settings["inquiror"],
+            ["entries"],
+            instructors.instruct_structure(
+                self.settings["general"]["language"],
+                self.settings["general"].get("context_guidelines", ""),
+            ),
+        )
+
     def create_invoker(self, x, entries, instructions):
         if x["model"] in GPT_MODELS or x["model"].startswith("gpt"):
             from .gpt_invoker import GPT_Invoker

@@ -19,6 +19,8 @@ Public API:
 
 from .commands import (
     inquire,
+    build_structure,
+    resume_structure,
     resume,
     open_settings,
     reset,
@@ -26,6 +28,8 @@ from .commands import (
 
 __all__ = [
     "inquire",
+    "build_structure",
+    "resume_structure",
     "resume",
     "open_settings",
     "reset",

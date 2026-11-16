@@ -38,3 +38,32 @@ LANGUAGE
 CONTEXT GUIDELINES
 {context_guidelines}
 """
+
+
+def instruct_structure(language: str, context_guidelines: str = "") -> str:
+    """Prompt for field *names*, not information to fill those fields."""
+    return f"""You are designing an empty data-entry template based on a PDF page.
+
+TASK
+- Examine the provided PDF page and identify the names of data fields that
+  would be useful to record from paperwork of this kind.
+- Return field names only: DO NOT provide field values, names of actual people,
+  addresses, dates, or other document-specific answers.
+- Prefer headings, form labels, and explicitly identifiable data categories.
+- Do not fabricate categories unsupported by the page.
+- Keep each label short, precise, and specific enough to be reusable.
+- If the page contains no identifiable fields, return an empty string.
+- Do not number the fields or include commentary.
+
+STRICT JSON OUTPUT
+Return only a valid JSON object with exactly one key, \"entries\".
+Its value MUST be a string with one field name per line, separated by newline
+characters. No other keys, markdown, or explanations.
+
+LANGUAGE
+Use {language} for the field labels unless official terms should remain
+in their original language.
+
+CONTEXT GUIDELINES
+{context_guidelines}
+"""

@@ -12,6 +12,7 @@ from pathlib import Path
 
 from .prompt_gateway import PromptGateway
 from .iterator import Iterator, PICKLE_NAME
+from .structure_builder import StructureBuilder, STRUCTURE_PICKLE_NAME, STRUCTURE_CSV_NAME
 from . import ding
 
 # ------------------------------------------------------------------------------------------
@@ -42,6 +43,30 @@ def inquire():
     else:
         open_settings()
         print("Save settings and try again.")
+
+
+def build_structure():
+    """Discover blank entry slots from the PDFs in the current directory."""
+    if not settings_path.exists():
+        open_settings()
+        print("Save settings and try again.")
+        return
+
+    gate = PromptGateway(_load_settings(settings_path))
+    builder = StructureBuilder(gate)
+    builder.resume_inquiry()
+    _print_to_csv(builder.filled_entries, STRUCTURE_CSV_NAME)
+    print(ding.DING)
+
+
+def resume_structure():
+    """Resume field discovery from its independent checkpoint."""
+    builder = _load_pickle(STRUCTURE_PICKLE_NAME)
+    if not isinstance(builder, StructureBuilder):
+        raise TypeError("Checkpoint is not a StructureBuilder")
+    builder.resume_inquiry()
+    _print_to_csv(builder.filled_entries, STRUCTURE_CSV_NAME)
+    print(ding.DING)
 
 
 def resume():
@@ -87,8 +112,8 @@ def _load_settings(filename):
     
 # ------------------------------------------------------------------------------------------
 
-def _print_to_csv(data):
-    with open(f"{CSV_NAME}.csv", "w", newline="", encoding="utf-8-sig") as f:
+def _print_to_csv(data, filename=CSV_NAME):
+    with open(f"{filename}.csv", "w", newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f)
 
         for key, values in data.items():

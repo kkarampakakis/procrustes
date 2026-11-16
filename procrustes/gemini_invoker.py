@@ -76,6 +76,7 @@ class Gemini_Invoker:
                     "response_json_schema": template_to_string_schema(self.entries),
                 }
             )
+        )
         return response.parsed
 
 # ------------------------------------------------------------------------------------------
